@@ -5,8 +5,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private int maxHealth = 100;
-    [SerializeField] private int currentHealth;
-    [SerializeField] private GameObject deathEffect;
+     public int currentHealth;
+    [SerializeField] public GameObject deathEffect;
 
     
 

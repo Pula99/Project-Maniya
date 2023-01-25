@@ -6,18 +6,18 @@ using UnityEngine;
 
 public class EnemyBulletScript : MonoBehaviour
 {
-    [SerializeField] public GameObject player;
+    private GameObject player;
     private Rigidbody2D rb;
 
     [Header("bullet stats")]
     [SerializeField] public float speed;
     [SerializeField] private float bulletVanishTime;
-    [SerializeField] private float damage = 10; 
+    [SerializeField] private float damage = 20; 
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = Manager.instance.Player;
 
         Vector3 direction = player.transform.position - transform.position;
         rb.velocity = new Vector2(direction.x, direction.y).normalized * speed;
@@ -41,9 +41,18 @@ public class EnemyBulletScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
+            Manager.instance.PlayerHealth.TakeDamage(damage);
         }
         Destroy(gameObject);
+
+
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            other.gameObject.GetComponent<Enemy>().currentHealth -= 20;
+            Destroy(gameObject);
+            
+        }
+        
 
     }
 
