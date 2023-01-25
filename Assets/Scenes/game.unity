@@ -4197,7 +4197,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.25, y: -3.760413, z: -10}
+  m_LocalPosition: {x: -17.25, y: -3.967, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 548819272}
@@ -4613,13 +4613,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1573191627}
-  - component: {fileID: 1573191632}
   - component: {fileID: 1573191631}
   - component: {fileID: 1573191630}
   - component: {fileID: 1573191629}
   - component: {fileID: 1573191628}
   - component: {fileID: 1573191633}
   - component: {fileID: 1573191634}
+  - component: {fileID: 1573191632}
   - component: {fileID: 1573191635}
   m_Layer: 6
   m_Name: Player
@@ -4636,8 +4636,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1573191626}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.66, y: -0.040413, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -14.66, y: -0.247, z: 0}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_Children:
   - {fileID: 86962878}
   - {fileID: 2107855507}
@@ -4658,6 +4658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 1573191631}
+  animator: {fileID: 1573191635}
 --- !u!61 &1573191629
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4667,22 +4668,22 @@ BoxCollider2D:
   m_GameObject: {fileID: 1573191626}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 90f020e33998d9442afd56e53e67c0fc, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.36}
+  m_Offset: {x: 0, y: 0.15}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.18, y: 2.4}
-    newSize: {x: 1.18, y: 2.4}
+    oldSize: {x: 1.19, y: 2.4}
+    newSize: {x: 1.29, y: 2.12}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.69, y: 1.23}
+  m_Size: {x: 0.82, y: 1.67}
   m_EdgeRadius: 0
 --- !u!50 &1573191630
 Rigidbody2D:
@@ -4717,7 +4718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e77c480509944d842a033cac867146fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_JumpForce: 550
+  m_JumpForce: 250
   m_CrouchSpeed: 0.4
   m_MovementSmoothing: 0.05
   m_AirControl: 1
@@ -4729,10 +4730,34 @@ MonoBehaviour:
   m_CrouchDisableCollider: {fileID: 1573191629}
   OnLandEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1573191628}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: OnLanding
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnCrouchEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1573191628}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: OnCrouching
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!212 &1573191632
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4773,12 +4798,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4723107735738678597, guid: 813b818760ba1914d93cfd4489e7c833, type: 3}
+  m_Sprite: {fileID: -2151643198971870252, guid: 4dafa4e14675a614e8e37fe08f6a3945, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.18, y: 2.4}
+  m_Size: {x: 1.29, y: 2.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -4793,13 +4818,13 @@ CircleCollider2D:
   m_GameObject: {fileID: 1573191626}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 90f020e33998d9442afd56e53e67c0fc, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.65}
+  m_Offset: {x: 0, y: -0.62}
   serializedVersion: 2
-  m_Radius: 0.46
+  m_Radius: 0.43
 --- !u!114 &1573191634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4824,7 +4849,7 @@ Animator:
   m_GameObject: {fileID: 1573191626}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b940236673bf41946a531d75543f60be, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7e72fe884c8cd0e459277a262d0c1136, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -5329,7 +5354,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2107855506}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.049999952, y: -1.131, z: 0}
+  m_LocalPosition: {x: -0.049999952, y: -1.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1573191627}
