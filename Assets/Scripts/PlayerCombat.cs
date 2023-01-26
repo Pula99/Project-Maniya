@@ -6,6 +6,7 @@ public class PlayerCombat : MonoBehaviour
 {
     [SerializeField] private Transform firepoint;
     [SerializeField] private GameObject ninjastarprefab;
+    [SerializeField] private float PlayerShootDamage;
     
     void Update()
     {

@@ -16,10 +16,20 @@ public class NinjaStar : MonoBehaviour
     void OnTriggerEnter2D (Collider2D hitInfo)
     {
         Enemy enemy = hitInfo.GetComponent<Enemy>();
+        ShortRangeSoilder soilder = hitInfo.GetComponent<ShortRangeSoilder>();
+
         if (enemy != null)
         {
             enemy.TakeDamage(damage);
         }
+
+        if (soilder != null)
+        {
+            soilder.TakeDamage(damage);
+        }
+
+
+
 
         if (ImpactEffect)
         {
