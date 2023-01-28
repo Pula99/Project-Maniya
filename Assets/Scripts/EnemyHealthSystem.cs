@@ -43,8 +43,8 @@ public class Health : MonoBehaviour
                 if (GetComponentInParent<EnemyPatrol>() != null)
                     GetComponent<EnemyPatrol>().enabled = false;
 
-                if (GetComponent<ShortRangeSoilder>() != null)
-                    GetComponent<ShortRangeSoilder>().enabled = false;
+                if (GetComponent<ShortRangeSoldier>() != null)
+                    GetComponent<ShortRangeSoldier>().enabled = false;
 
                 /*//Deactivate all attached component classes
                 foreach (Behaviour component in components)

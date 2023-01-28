@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyFireballHolder : MonoBehaviour
+public class RangeBulletHolder : MonoBehaviour
 {
     [SerializeField] private Transform enemy;
 

@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShortRangeSoilder : MonoBehaviour
+public class ShortRangeSoldier : MonoBehaviour
 { 
 
-    [Header("Attack Parameter")]
+    [Header("Enemy Attack Parameter")]
     [SerializeField] private float attackCooldown;
     [SerializeField] private int damage;
     [SerializeField] private float range;

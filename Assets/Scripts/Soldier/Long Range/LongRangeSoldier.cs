@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LongRangeSoilder : MonoBehaviour
+public class LongRangeSoldier : MonoBehaviour
 {
-    [Header("Attack Parameter")]
+    [Header("Enemy Attack Parameter")]
     [SerializeField] private float attackCooldown;
     [SerializeField] private int damage;
     [SerializeField] private float range;
 
     [Header("Range Attack")]
     [SerializeField] private Transform firepoint;
-    [SerializeField] private GameObject[] fireball;
+    [SerializeField] private GameObject[] RangeBullet;
 
     [Header("Collider Parameter")]
     [SerializeField] private float colliderDistance;
@@ -59,15 +59,15 @@ public class LongRangeSoilder : MonoBehaviour
     private void RangeAttack()
     {
         cooldownTimer = 0;
-        fireball[FindFireball()].transform.position = firepoint.position;
-        fireball[FindFireball()].GetComponent<EnemyProjectile>().ActivateProjectile();
+        RangeBullet[FindFireball()].transform.position = firepoint.position;
+        RangeBullet[FindFireball()].GetComponent<EnemyProjectile>().ActivateProjectile();
     }
 
     private int FindFireball()
     {
-        for (int i = 0; i < fireball.Length; i++)
+        for (int i = 0; i < RangeBullet.Length; i++)
         {
-            if (!fireball[i].activeInHierarchy)
+            if (!RangeBullet[i].activeInHierarchy)
                 return i;
         }
         return 0;
@@ -90,5 +90,35 @@ public class LongRangeSoilder : MonoBehaviour
         Gizmos.DrawWireCube(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
            new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z));
     }
+
+
+
+    void Start()
+    {
+        currentHealth = maxHealth;
+
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+
+    }
+
+    void Die()
+    {
+        if (deathEffect)
+        {
+            Instantiate(deathEffect, transform.position, Quaternion.identity);
+
+        }
+        Destroy(gameObject);
+    }
+
 
 }
