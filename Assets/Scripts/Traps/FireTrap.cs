@@ -5,12 +5,13 @@ using UnityEngine;
 public class FireTrap : MonoBehaviour
 {
     private GameObject player;
+    private PlayerHealth playerHealth;
 
 
     [Header("Fire Timers")]
     [SerializeField] private float activateDelay;
     [SerializeField] private float activeTime;
-    [SerializeField] private float damage =10;
+    [SerializeField] private float damage;
     private Animator anim;
     private SpriteRenderer spriteRend;
 
@@ -23,16 +24,31 @@ public class FireTrap : MonoBehaviour
         spriteRend = GetComponent<SpriteRenderer>();
     }
 
+    private void Update()
+    {
+        if(playerHealth != null && active)
+            Manager.instance.PlayerHealth.TakeDamage(damage);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player")
         {
+            playerHealth = collision.GetComponent<PlayerHealth>();
+
             if (!triggered)
                 StartCoroutine(ActivateFiretrap());
 
             if (active)
             Manager.instance.PlayerHealth.TakeDamage(damage);
         }
+    }
+
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+            playerHealth = null;
     }
 
     private IEnumerator ActivateFiretrap()

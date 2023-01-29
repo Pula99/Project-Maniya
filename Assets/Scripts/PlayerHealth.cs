@@ -13,6 +13,9 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private int numberofFlashes;
     private SpriteRenderer spriteRend;
 
+    [Header("Component")]
+    private bool invulerable;
+
 
     public HealthBar healthBar;
     void Start()
@@ -24,6 +27,8 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        if (invulerable) return;
+
         currentHealth -= damage;
         StartCoroutine(Invunerability());
         healthBar.SetHealth(currentHealth);
@@ -37,6 +42,7 @@ public class PlayerHealth : MonoBehaviour
 
     private IEnumerator Invunerability()
     {
+        invulerable = true;
         Physics2D.IgnoreLayerCollision(6, 7, true);
 
         for (int i = 0; i < numberofFlashes; i++)
@@ -48,6 +54,7 @@ public class PlayerHealth : MonoBehaviour
         }
 
         Physics2D.IgnoreLayerCollision(6, 7, false);
+        invulerable = false;
 
     }
 }
