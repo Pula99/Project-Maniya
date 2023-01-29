@@ -20,6 +20,8 @@ public class NinjaStar : MonoBehaviour
         LongRangeSoldier lrSoldier = hitInfo.GetComponent<LongRangeSoldier>();
         EnemyFollowPlayer efSoldier = hitInfo.GetComponent<EnemyFollowPlayer>();
         FollowingEliteEnemyBullet feeSoldier = hitInfo.GetComponent<FollowingEliteEnemyBullet>();
+        Canon canonBall = hitInfo.GetComponent<Canon>();
+
 
 
         if (enemy != null)
@@ -46,6 +48,12 @@ public class NinjaStar : MonoBehaviour
         {
             feeSoldier.TakeDamage(damage);
         }
+
+        if (canonBall != null)
+        {
+            canonBall.TakeDamage(damage);
+        }
+
 
 
 
