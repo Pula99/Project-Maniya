@@ -8,13 +8,21 @@ public class DoomsDay : MonoBehaviour
     [SerializeField] private float damage;
     [SerializeField] private float range;
     [SerializeField] private float checkDelay;
-    [SerializeField] private LayerMask playerLayer; 
-    private Vector3 destionation;   
-    private bool attaking;
     private float checkTimer;
+    private Vector3 destination;
+    [SerializeField] private LayerMask playerLayer; 
+    private bool attaking;
     private Vector3[] direction = new Vector3[4];
 
+    [Header("Dooms Day life")]
+    [SerializeField] private int maxHealth = 100;
+    public int currentHealth;
+    [SerializeField] public GameObject deathEffect;
 
+    void Start()
+    {
+        currentHealth = maxHealth;
+    }
     private void OnEnable()
     {
         Stop();
@@ -24,7 +32,7 @@ public class DoomsDay : MonoBehaviour
     {
         //move doomsday ti destination only if attacking
         if(attaking)
-            transform.Translate(destionation * Time.deltaTime * speed);
+            transform.Translate(destination * Time.deltaTime * speed);
         else
         {
             checkTimer += Time.deltaTime;
@@ -46,7 +54,7 @@ public class DoomsDay : MonoBehaviour
             if(hit.collider != null && !attaking)
             {
                 attaking = true;
-                destionation = direction[i];
+                destination = direction[i];
                 checkTimer = 0;
             }
         }
@@ -62,12 +70,7 @@ public class DoomsDay : MonoBehaviour
         direction[3] = -transform.up * range; // down direction
     }
 
-    private void Stop()
-    {
-        destionation = transform.position;
-        attaking = false;
-
-    }
+  
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
@@ -76,9 +79,39 @@ public class DoomsDay : MonoBehaviour
             Manager.instance.PlayerHealth.TakeDamage(damage);
             Stop();
         }
-        
+
+        if (collision.tag == "Floor")
+            Stop();
+
+    }
+
+    private void Stop()
+    {
+        destination = transform.position;
+        attaking = false;
+
+    }
 
 
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+
+    }
+
+    void Die()
+    {
+        if (deathEffect)
+        {
+            Instantiate(deathEffect, transform.position, Quaternion.identity);
+
+        }
+        Destroy(gameObject);
     }
 
 }
