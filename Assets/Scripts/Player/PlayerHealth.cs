@@ -15,9 +15,10 @@ public class PlayerHealth : MonoBehaviour
 
     [Header("Component")]
     private bool invulerable;
+    private Animator anim;
 
-
-
+    private Vector3 respawnPoint;
+    public GameObject fallDetector;
 
 
 
@@ -27,7 +28,28 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
         spriteRend = GetComponent<SpriteRenderer>();
+        respawnPoint = transform.position;
     }
+
+    public void Update()
+    {
+        fallDetector.transform.position = new Vector2(transform.position.x , fallDetector.transform.position.y);
+    }
+
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "FallDetector")
+        {
+            transform.position = respawnPoint;
+
+        } else if (collision.tag == "Checkpoint")
+        {
+            respawnPoint = transform.position;
+            
+        } 
+    }
+
 
     public void TakeDamage(float damage)
     {
@@ -40,7 +62,7 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth <= 0)
         {   
             Destroy(gameObject);
-           
+
         }
 
     }
@@ -49,6 +71,9 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth = Mathf.Clamp(currentHealth + value, 0, maxHealth);
     }
+
+
+    
 
 
     private IEnumerator Invunerability()

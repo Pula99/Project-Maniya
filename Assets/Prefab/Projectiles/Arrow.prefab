@@ -146,4 +146,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   speed: 10
-  resetTime: 2
+  resetTime: 4

@@ -144,10 +144,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62925605ba409f94691ff13797289fe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  damage: 1
+  speed: 3
+  damage: 10
   range: 15
-  checkDelay: 1
+  checkDelay: 0.5
   playerLayer:
     serializedVersion: 2
     m_Bits: 64

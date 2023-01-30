@@ -28,7 +28,7 @@ public class Canon : MonoBehaviour
     {
        distance = Vector2.Distance(transform.position, player.transform.position);
 
-        if (distance < 10)
+        if (distance < 20)
         {
             timer += Time.deltaTime;
 

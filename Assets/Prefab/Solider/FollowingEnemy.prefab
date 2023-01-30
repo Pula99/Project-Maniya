@@ -247,6 +247,9 @@ MonoBehaviour:
   fireRate: 1
   bullet: {fileID: 2924039796978489960, guid: f3eac327e11b7d645949ae7c0a0cd868, type: 3}
   bulletParent: {fileID: 6034851131508489951}
+  maxHealth: 100
+  currentHealth: 0
+  deathEffect: {fileID: 0}
 --- !u!61 &6034851131872726544
 BoxCollider2D:
   m_ObjectHideFlags: 0
