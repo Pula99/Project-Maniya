@@ -99,22 +99,27 @@ public class ShortRangeSoldier : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        anim.SetTrigger("hurt");
 
         if (currentHealth <= 0)
         {
+            anim.SetTrigger("die");
             Die();
-        }
 
+        }
     }
 
     void Die()
     {
+        
         if (deathEffect)
         {
             Instantiate(deathEffect, transform.position, Quaternion.identity);
+            
 
         }
-        Destroy(gameObject);
+
+        Destroy(gameObject, 1f);
     }
 
 }
