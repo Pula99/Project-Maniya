@@ -39,7 +39,7 @@ public class EnemyProjectile : MonoBehaviour
     }*/
 
 
-    [SerializeField] private float damage;
+    [SerializeField] private int damage;
     [SerializeField] private float speed;
     [SerializeField] private float resetTime;
     private float lifetime;
@@ -78,8 +78,10 @@ public class EnemyProjectile : MonoBehaviour
 
         if (collision.tag == "Player")
             Manager.instance.PlayerHealth.TakeDamage(damage);
+         
 
         coll.enabled = false;
+
 
         if (anim != null)
             anim.SetTrigger("explode"); //When the object is a fireball explode it

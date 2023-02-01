@@ -28,12 +28,13 @@ public class LongRangeSoldier : MonoBehaviour
 
     //references
     private Animator anim;
-    private EnemyPatrol enemyPatrol;
+    private LongEnemyPatrol longEnemyPatrol;
+    private PlayerHealth playerHealth;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
-        enemyPatrol = GetComponentInParent<EnemyPatrol>();
+        longEnemyPatrol = GetComponentInParent<LongEnemyPatrol>();
     }
 
 
@@ -48,21 +49,26 @@ public class LongRangeSoldier : MonoBehaviour
             if (cooldownTimer >= attackCooldown)
             {
                 cooldownTimer = 0;
-                anim.SetTrigger("rangeAttack");
+                anim.SetTrigger("RangeAttack");
             }
         }
 
-        if (enemyPatrol != null)
-            enemyPatrol.enabled = !PlayerInSight();
+        if (longEnemyPatrol != null)
+            longEnemyPatrol.enabled = !PlayerInSight();
     }
 
     private void RangeAttack()
+
     {
-        cooldownTimer = 0;
-        RangeBullet[FindFireball()].transform.position = firepoint.position;
-        RangeBullet[FindFireball()].GetComponent<EnemyProjectile>().ActivateProjectile();
+        if (PlayerInSight())
+        {
+            cooldownTimer = 0;
+            RangeBullet[FindFireball()].transform.position = firepoint.position;
+            RangeBullet[FindFireball()].GetComponent<EnemyProjectile>().ActivateProjectile();
+        } 
     }
 
+    
     private int FindFireball()
     {
         for (int i = 0; i < RangeBullet.Length; i++)
@@ -91,6 +97,13 @@ public class LongRangeSoldier : MonoBehaviour
            new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z));
     }
 
+    private void OnTriggerEnter2D(CapsuleCollider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            playerHealth.TakeDamage(damage);
+        }
+    }
 
 
     void Start()
@@ -102,9 +115,11 @@ public class LongRangeSoldier : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        anim.SetTrigger("Hurt");
 
         if (currentHealth <= 0)
         {
+            anim.SetTrigger("Die");
             Die();
         }
 
@@ -115,9 +130,8 @@ public class LongRangeSoldier : MonoBehaviour
         if (deathEffect)
         {
             Instantiate(deathEffect, transform.position, Quaternion.identity);
-
         }
-        Destroy(gameObject);
+        Destroy(gameObject,1f);
     }
 
 

@@ -7,7 +7,7 @@ public class ShortRangeSoldier : MonoBehaviour
 
     [Header("Enemy Attack Parameter")]
     [SerializeField] private float attackCooldown;
-    [SerializeField] private int damage;
+    [SerializeField] public int damage;
     [SerializeField] private float range;
 
     [Header("Collider Parameter")]
@@ -89,6 +89,13 @@ public class ShortRangeSoldier : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Manager.instance.PlayerHealth.TakeDamage(damage);
+        }
+    }
 
     void Start()
     {
@@ -115,8 +122,6 @@ public class ShortRangeSoldier : MonoBehaviour
         if (deathEffect)
         {
             Instantiate(deathEffect, transform.position, Quaternion.identity);
-            
-
         }
 
         Destroy(gameObject, 1f);

@@ -243,6 +243,8 @@ GameObject:
   - component: {fileID: 5895201695170546449}
   - component: {fileID: 5895201695170546451}
   - component: {fileID: 5895201695170546450}
+  - component: {fileID: 1414622058}
+  - component: {fileID: 1722402030}
   m_Layer: 7
   m_Name: Soldier
   m_TagString: Enemy
@@ -305,9 +307,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0.9309257, g: 1, b: 0, a: 1}
-  m_FlipX: 0
+  m_Sprite: {fileID: 21300000, guid: f7ef3439474ea2944bd0ad2eea57ba2f, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -326,7 +328,7 @@ Animator:
   m_GameObject: {fileID: 5895201695170546461}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 60c9d12978cf78646b4751e8d36875e0, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8b793b39071b09544ac8b9cb727b9fea, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -348,18 +350,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.07402611}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 3.8984375, y: 3.8984375}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.1480522}
   m_EdgeRadius: 0
 --- !u!50 &5895201695170546451
 Rigidbody2D:
@@ -373,10 +375,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 10
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -417,6 +419,48 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   deathEffect: {fileID: 0}
+--- !u!61 &1414622058
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5895201695170546461}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.55}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.8984375, y: 3.8984375}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.01}
+  m_EdgeRadius: 0
+--- !u!70 &1722402030
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5895201695170546461}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.016964912, y: -0.19949007}
+  m_Size: {x: 1.2951984, y: 1.5956507}
+  m_Direction: 0
 --- !u!1 &5895201696170618590
 GameObject:
   m_ObjectHideFlags: 0
@@ -792,14 +836,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be929229adf5db94390118d58ace354c, type: 3}
---- !u!4 &5904078789774334096 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9137860674615195, guid: be929229adf5db94390118d58ace354c, type: 3}
-  m_PrefabInstance: {fileID: 5895201695405616907}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5904078789774334099 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9137860674615192, guid: be929229adf5db94390118d58ace354c, type: 3}
+  m_PrefabInstance: {fileID: 5895201695405616907}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5904078789774334096 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9137860674615195, guid: be929229adf5db94390118d58ace354c, type: 3}
   m_PrefabInstance: {fileID: 5895201695405616907}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5895201695414278765
