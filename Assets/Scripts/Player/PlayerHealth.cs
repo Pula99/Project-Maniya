@@ -20,7 +20,7 @@ public class PlayerHealth : MonoBehaviour
     private Vector3 respawnPoint;
     public GameObject fallDetector;
     
-    private int damage;
+    public int damage;
 
 
     public HealthBar healthBar;
@@ -47,8 +47,9 @@ public class PlayerHealth : MonoBehaviour
         } else if (collision.tag == "Checkpoint")
         {
             respawnPoint = transform.position;
-            
-        }  else if (collision.tag == "Enemy")
+
+        }
+        else if (collision.tag == "Enemy")
         {
             Manager.instance.PlayerHealth.TakeDamage(damage);
         }

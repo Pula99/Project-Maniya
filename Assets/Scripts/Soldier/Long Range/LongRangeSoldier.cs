@@ -6,7 +6,7 @@ public class LongRangeSoldier : MonoBehaviour
 {
     [Header("Enemy Attack Parameter")]
     [SerializeField] private float attackCooldown;
-    [SerializeField] private int damage;
+    [SerializeField] public int damage;
     [SerializeField] private float range;
 
     [Header("Range Attack")]
@@ -68,7 +68,15 @@ public class LongRangeSoldier : MonoBehaviour
         } 
     }
 
-    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<PlayerHealth>().damage = 5;
+        }
+    }
+
+
     private int FindFireball()
     {
         for (int i = 0; i < RangeBullet.Length; i++)
@@ -97,13 +105,7 @@ public class LongRangeSoldier : MonoBehaviour
            new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z));
     }
 
-    private void OnTriggerEnter2D(CapsuleCollider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            playerHealth.TakeDamage(damage);
-        }
-    }
+    
 
 
     void Start()
