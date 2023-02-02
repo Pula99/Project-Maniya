@@ -76,7 +76,9 @@ public class EnemyProjectile : MonoBehaviour
     {
         hit = true;
 
+
         if (collision.tag == "Player")
+          
             Manager.instance.PlayerHealth.TakeDamage(damage);
          
 
@@ -94,3 +96,4 @@ public class EnemyProjectile : MonoBehaviour
     }
 
 }
+

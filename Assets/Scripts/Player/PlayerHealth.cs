@@ -14,13 +14,17 @@ public class PlayerHealth : MonoBehaviour
     private SpriteRenderer spriteRend;
 
     [Header("Component")]
+    [SerializeField] private Behaviour[] components;
     private bool invulerable;
     private Animator anim;
 
     private Vector3 respawnPoint;
     public GameObject fallDetector;
-    
+
+    public UIManager uiManager;
+
     public int damage;
+    private bool isDead;
 
 
     public HealthBar healthBar;
@@ -64,9 +68,12 @@ public class PlayerHealth : MonoBehaviour
         StartCoroutine(Invunerability());
         healthBar.SetHealth(currentHealth);
 
-        if (currentHealth <= 0)
-        {   
+        if (currentHealth <= 0 && !isDead)
+        {
+            isDead = true;
+            uiManager.GameOver();
             Destroy(gameObject);
+           
 
         }
 
@@ -77,8 +84,6 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth + value, 0, maxHealth);
     }
 
-
-    
 
 
     private IEnumerator Invunerability()
@@ -98,4 +103,5 @@ public class PlayerHealth : MonoBehaviour
         invulerable = false;
 
     }
+
 }

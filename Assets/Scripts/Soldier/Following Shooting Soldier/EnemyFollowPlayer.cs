@@ -13,6 +13,9 @@ public class EnemyFollowPlayer : MonoBehaviour
     public GameObject bulletParent;
     private Transform player;
 
+    public GameObject gun;
+
+
     [Header("Enemy life")]
     [SerializeField] private int maxHealth = 100;
     public int currentHealth;
@@ -32,6 +35,7 @@ public class EnemyFollowPlayer : MonoBehaviour
         if(distanceFromPlayer < lineOfSite && distanceFromPlayer > shootingRange)
         {
             transform.position = Vector2.MoveTowards(this.transform.position, player.position, speed * Time.deltaTime);
+            
         }
 
         else if (distanceFromPlayer <= shootingRange && nextFireTime <Time.time)

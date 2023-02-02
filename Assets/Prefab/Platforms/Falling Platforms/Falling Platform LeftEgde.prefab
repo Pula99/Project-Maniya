@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9075598597798459772}
   - component: {fileID: 610412657792741983}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Falling Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4724576140758954768}
   - component: {fileID: 2778580218745570140}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Falling Platform (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,9 +177,9 @@ GameObject:
   - component: {fileID: 8632346829032634128}
   - component: {fileID: 8605229963415090923}
   - component: {fileID: 4518046945509490227}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Falling Platform LeftEgde
-  m_TagString: Untagged
+  m_TagString: platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

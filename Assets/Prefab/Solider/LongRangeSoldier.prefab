@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5895201694593122929}
-  - component: {fileID: 5895201694593122928}
+  - component: {fileID: 1414633112}
   m_Layer: 0
   m_Name: EnemyPatrol
   m_TagString: Untagged
@@ -65,7 +65,7 @@ Transform:
   m_Father: {fileID: 5511266367494072967}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5895201694593122928
+--- !u!114 &1414633112
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5895201694593122943}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21401bfce162e1f4199260cc5d1cfa06, type: 3}
+  m_Script: {fileID: 11500000, guid: c629c20b01e0e884baed679c1a81237b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   leftEdge: {fileID: 5895201696170618591}

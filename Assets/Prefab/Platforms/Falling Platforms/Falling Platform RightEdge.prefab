@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8519204098678512608}
   - component: {fileID: 8088229514217721236}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Falling Platform (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,9 +95,9 @@ GameObject:
   - component: {fileID: 9082268956981209026}
   - component: {fileID: 1582683362353725265}
   - component: {fileID: 6825622799124334055}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Falling Platform RightEdge
-  m_TagString: Untagged
+  m_TagString: platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -209,7 +209,7 @@ GameObject:
   m_Component:
   - component: {fileID: 977363747428588717}
   - component: {fileID: 7429066387159497948}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Falling Platform (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

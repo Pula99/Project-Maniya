@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 2468597732821159150}
   - component: {fileID: 2468597732821159149}
   - component: {fileID: 2468597732821159148}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Falling Platform 1Blocks
-  m_TagString: Untagged
+  m_TagString: platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,7 +127,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2468597733597155923}
   - component: {fileID: 2468597733597155924}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Falling Platform (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2468597733806785923}
   - component: {fileID: 2468597733806785924}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Falling Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}

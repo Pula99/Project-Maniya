@@ -9,6 +9,8 @@ TagManager:
   - Floor
   - Checkpoint
   - FallDetector
+  - Crow
+  - platform
   layers:
   - Default
   - TransparentFX
@@ -19,8 +21,8 @@ TagManager:
   - Player
   - Enemy
   - Obstacle
-  - 
-  - 
+  - Crow
+  - platform
   - 
   - 
   - 

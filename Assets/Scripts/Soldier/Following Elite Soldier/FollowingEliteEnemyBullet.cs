@@ -9,25 +9,56 @@ public class FollowingEliteEnemyBullet : MonoBehaviour
     Transform player;
     [SerializeField] private int maxHealth = 100;
     [SerializeField] public int currentHealth;
+    private Animator anim;
+    private BoxCollider2D coll;
+ 
 
+
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
+        coll = GetComponent<BoxCollider2D>();
+    }
 
     void Start()
     {
         currentHealth = maxHealth;
-        player = GameObject.FindGameObjectWithTag("Player").transform;   
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+        anim.SetTrigger("moving");
+       // transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+
+        if(player.position.x > 0.01f)
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+        }
+         else if (player.position.x <= 0.01f)
+        {
+            transform.localScale = new Vector3(1f, 1f, 1f);
+            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+        }
+
+
+      
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+
+        private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
+        {
             Manager.instance.PlayerHealth.TakeDamage(damage);
-        Destroy(gameObject);
+            GetComponent<PlayerMovement>().enabled = false;
+        }
+
+
+
+        // Destroy(gameObject);
     }
 
 
@@ -44,9 +75,11 @@ public class FollowingEliteEnemyBullet : MonoBehaviour
 
     void Die()
     {
-       
+
         Destroy(gameObject);
     }
 
 
+
 }
+

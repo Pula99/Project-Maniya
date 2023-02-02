@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 8549775681607092737}
   - component: {fileID: 8549775681607092738}
   - component: {fileID: 8549775681607092739}
-  m_Layer: 7
+  - component: {fileID: 1373234497}
+  m_Layer: 8
   m_Name: Arrow
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -74,10 +75,10 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ac716e7737e08964e9e128570c34862f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e5204fd381fd78048bd8b3eb64df2923, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
+  m_FlipX: 1
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 5, y: 5}
   m_AdaptiveModeThreshold: 0.5
@@ -102,7 +103,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5, y: 5}
+    oldSize: {x: 5.383333, y: 6.45}
     newSize: {x: 5, y: 5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -147,3 +148,22 @@ MonoBehaviour:
   damage: 5
   speed: 10
   resetTime: 4
+--- !u!95 &1373234497
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8549775681607092766}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c4ccee20681ec3045ac64daa56fe0b67, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 1
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
