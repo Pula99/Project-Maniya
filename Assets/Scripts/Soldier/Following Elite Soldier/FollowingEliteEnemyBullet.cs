@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class FollowingEliteEnemyBullet : MonoBehaviour
@@ -10,15 +9,16 @@ public class FollowingEliteEnemyBullet : MonoBehaviour
     [SerializeField] private int maxHealth = 100;
     [SerializeField] public int currentHealth;
     private Animator anim;
-    private BoxCollider2D coll;
+
  
 
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
-        coll = GetComponent<BoxCollider2D>();
+
     }
+
 
     void Start()
     {
@@ -30,21 +30,31 @@ public class FollowingEliteEnemyBullet : MonoBehaviour
     void Update()
     {
         anim.SetTrigger("moving");
-       // transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+        // transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
 
-        if(player.position.x > 0.01f)
+        if(GetRelativePos())
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
-            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
         }
-         else if (player.position.x <= 0.01f)
+         else 
         {
             transform.localScale = new Vector3(1f, 1f, 1f);
-            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
         }
 
+        transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
 
-      
+
+    }
+
+    private bool GetRelativePos()
+    {
+
+        float DotResult = Vector3.Dot(transform.forward, player.forward);
+        if (DotResult <= 0)
+        {
+            return true;
+        }
+        return false;
     }
 
 
