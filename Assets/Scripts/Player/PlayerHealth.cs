@@ -18,7 +18,7 @@ public class PlayerHealth : MonoBehaviour
     private bool invulerable;
     private Animator anim;
 
-    private Vector3 respawnPoint;
+    
     public GameObject fallDetector;
 
     public UIManager uiManager;
@@ -33,7 +33,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
         spriteRend = GetComponent<SpriteRenderer>();
-        respawnPoint = transform.position;
+     
     }
 
     public void Update()
@@ -46,11 +46,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if(collision.tag == "FallDetector")
         {
-            transform.position = respawnPoint;
-
-        } else if (collision.tag == "Checkpoint")
-        {
-            respawnPoint = transform.position;
+            transform.position = Manager.instance.RespawnPoint.position;
 
         }
         else if (collision.tag == "Enemy")
@@ -58,7 +54,6 @@ public class PlayerHealth : MonoBehaviour
             Manager.instance.PlayerHealth.TakeDamage(damage);
         }
     }
-
 
     public void TakeDamage(float damage)
     {
@@ -71,9 +66,9 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth <= 0 && !isDead)
         {
             isDead = true;
-            uiManager.GameOver();
-            Destroy(gameObject);
            
+            Destroy(gameObject,1f);
+            uiManager.GameOver();
 
         }
 
@@ -83,7 +78,6 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth = Mathf.Clamp(currentHealth + value, 0, maxHealth);
     }
-
 
 
     private IEnumerator Invunerability()
