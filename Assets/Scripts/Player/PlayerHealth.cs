@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [Header("Player Health")]
-    [SerializeField] private float maxHealth = 100;
+    
+    private float maxHealth = 100;
     public float currentHealth;
 
     [Header("iFrames")]
@@ -36,6 +36,7 @@ public class PlayerHealth : MonoBehaviour
     public HealthBar healthBar;
     void Start()
     {
+        maxHealth = PlayerPrefs.GetFloat("Health");
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
         spriteRend = GetComponent<SpriteRenderer>();

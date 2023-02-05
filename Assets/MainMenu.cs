@@ -5,7 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-   public void PlayGame()
+    private void Start()
+    {
+        Time.timeScale = 1;
+        PlayerPrefs.SetFloat("Health", 20);
+    }
+
+    public void PlayGame()
     {
         SceneManager.LoadScene("game");
     }
@@ -13,6 +19,22 @@ public class MainMenu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void SetDifficulty(int level)
+    {
+        switch (level)
+        {
+            case 1:
+                PlayerPrefs.SetFloat("Health", 30);
+                break;
+            case 2:
+                PlayerPrefs.SetFloat("Health", 25);
+                break;
+            case 3:
+                PlayerPrefs.SetFloat("Health", 20);
+                break;
+        }
     }
 
 }
