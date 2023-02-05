@@ -39,7 +39,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
         spriteRend = GetComponent<SpriteRenderer>();
-     
+        Time.timeScale = 1;
     }
 
     public void Update()
@@ -81,6 +81,7 @@ public class PlayerHealth : MonoBehaviour
             SoundManager.instance.BgSound.enabled = false;
             uiManager.GameOver();
 
+            Time.timeScale = 0;
 
         }
 

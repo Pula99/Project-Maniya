@@ -136,7 +136,7 @@ public class ShortRangeSoldier : MonoBehaviour
             Instantiate(deathEffect, transform.position, Quaternion.identity);
         }
 
-        Destroy(gameObject, 1f);
+        Destroy(enemyPatrol.gameObject, 1f);
     }
 
 }

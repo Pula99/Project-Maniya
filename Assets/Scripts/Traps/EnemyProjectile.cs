@@ -91,13 +91,17 @@ public class EnemyProjectile : MonoBehaviour
         if (anim != null)
         {
             anim.SetTrigger("explode"); //When the object is a fireball explode it
-            SoundManager.instance.PlaySound(ExplodeSound);
+
+            if(ExplodeSound)
+                SoundManager.instance.PlaySound(ExplodeSound);
            
         }
         else
         {   
             gameObject.SetActive(false);
-            SoundManager.instance.PlaySound(ExplodeSound);
+
+            if(ExplodeSound)
+                SoundManager.instance.PlaySound(ExplodeSound);
         }//When this hits any object deactivate arrow
            
     }

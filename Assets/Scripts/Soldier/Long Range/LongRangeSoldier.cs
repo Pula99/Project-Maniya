@@ -143,7 +143,7 @@ public class LongRangeSoldier : MonoBehaviour
         {
             Instantiate(deathEffect, transform.position, Quaternion.identity);
         }
-        Destroy(gameObject,1f);
+        Destroy(longEnemyPatrol.gameObject,1f);
     }
 
 
