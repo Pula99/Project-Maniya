@@ -46,6 +46,9 @@ public class EnemyProjectile : MonoBehaviour
     private Animator anim;
     private BoxCollider2D coll;
 
+    [Header("Player Death Sound")]
+    [SerializeField] private AudioClip ExplodeSound;
+
     private bool hit;
 
     private void Awake()
@@ -86,13 +89,22 @@ public class EnemyProjectile : MonoBehaviour
 
 
         if (anim != null)
+        {
             anim.SetTrigger("explode"); //When the object is a fireball explode it
+            SoundManager.instance.PlaySound(ExplodeSound);
+           
+        }
         else
-            gameObject.SetActive(false); //When this hits any object deactivate arrow
+        {   
+            gameObject.SetActive(false);
+            SoundManager.instance.PlaySound(ExplodeSound);
+        }//When this hits any object deactivate arrow
+           
     }
     private void Deactivate()
     {
         gameObject.SetActive(false);
+       
     }
 
 }

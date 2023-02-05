@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,18 +19,18 @@ public class UIManager : MonoBehaviour
     public void GameOver()
     {
         gameOverScreen.SetActive(true);
-       // SoundManaager.instance.PlaySound(gameOverSound);
+        SoundManager.instance.PlaySound(gameOverSound);
     }
 
     public void GameWin()
     {
         gameWinScreen.SetActive(true);
-        // SoundManger.instance.PlaySound(gameWinSound);
+        SoundManager.instance.PlaySound(gameWinSound);
     }
 
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("game");
 
     }
 

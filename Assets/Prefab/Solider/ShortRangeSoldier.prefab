@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4839275576851969828}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ShortRangeSoldier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6817475967891616636}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftEdge
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -70,7 +70,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6817475968121442804}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightEdge
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -101,7 +101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6817475968462462930}
   - component: {fileID: 6817475968462462931}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyPatrol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -298,6 +298,9 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   deathEffect: {fileID: 0}
+  AttackSound: {fileID: 8300000, guid: 5c079ea6e5abdf74598a7c50640852f7, type: 3}
+  DeathSound: {fileID: 8300000, guid: 83d4ba53a4a111c49b9b1cd9550c7abe, type: 3}
+  HurtSound: {fileID: 8300000, guid: a3ae0abfce7647747800d9ab610d7a38, type: 3}
 --- !u!50 &6817475969026971312
 Rigidbody2D:
   serializedVersion: 4

@@ -34,8 +34,9 @@ public class PlayerProjectile : MonoBehaviour
         transform.Translate(movementSpeed, 0, 0);
 
         lifeTime += Time.deltaTime;
-        if (lifeTime > 5)
+        if (lifeTime > 0.5)
             gameObject.SetActive(false);
+        Destroy(gameObject, 1f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

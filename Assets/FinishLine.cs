@@ -10,8 +10,9 @@ public class FinishLine : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            SoundManager.instance.BgSound.enabled = false;
             uiManager.GameWin();
-            Time.timeScale = 0;
+           // Time.timeScale = 0;
         }
     }
     

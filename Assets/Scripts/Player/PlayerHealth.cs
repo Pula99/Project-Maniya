@@ -18,7 +18,13 @@ public class PlayerHealth : MonoBehaviour
     private bool invulerable;
     private Animator anim;
 
-    
+    [Header("Player Death Sound")]
+    [SerializeField] private AudioClip DeathSound;
+    [SerializeField] private AudioClip HurtSound;
+
+
+
+    [Header("other components")]
     public GameObject fallDetector;
 
     public UIManager uiManager;
@@ -46,6 +52,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if(collision.tag == "FallDetector")
         {
+            Manager.instance.PlayerHealth.TakeDamage(damage);
             transform.position = Manager.instance.RespawnPoint.position;
 
         }
@@ -60,7 +67,9 @@ public class PlayerHealth : MonoBehaviour
         if (invulerable) return;
 
         currentHealth -= damage;
+        SoundManager.instance.PlaySound(HurtSound);
         StartCoroutine(Invunerability());
+        
         healthBar.SetHealth(currentHealth);
 
         if (currentHealth <= 0 && !isDead)
@@ -68,7 +77,10 @@ public class PlayerHealth : MonoBehaviour
             isDead = true;
            
             Destroy(gameObject,1f);
+            SoundManager.instance.PlaySound(DeathSound);
+            SoundManager.instance.BgSound.enabled = false;
             uiManager.GameOver();
+
 
         }
 

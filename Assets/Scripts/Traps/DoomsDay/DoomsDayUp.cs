@@ -19,6 +19,9 @@ public class DoomsDayUp : MonoBehaviour
     public int currentHealth;
     [SerializeField] public GameObject deathEffect;
 
+    [Header("SFX")]
+    [SerializeField] private AudioClip ImpactSound;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -76,12 +79,14 @@ public class DoomsDayUp : MonoBehaviour
 
         if (collision.tag == "Player")
         {
+            SoundManager.instance.PlaySound(ImpactSound);
             Manager.instance.PlayerHealth.TakeDamage(damage);
             Stop();
         }
 
         if (collision.tag == "Floor")
-            Stop();
+            SoundManager.instance.PlaySound(ImpactSound);
+        Stop();
 
     }
 

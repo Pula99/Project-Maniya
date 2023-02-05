@@ -100,11 +100,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   lineOfSite: 0
-  shootingRange: 30
+  shootingRange: 25
   fireRate: 6
   bullet: {fileID: 8360851195541446980, guid: 274f8a8e881e3314086ea4705ad7062c, type: 3}
   bulletParent: {fileID: 1205538466724475875}
-  maxHealth: 100
+  damage: 0
+  DeathSound: {fileID: 8300000, guid: a3ae0abfce7647747800d9ab610d7a38, type: 3}
+  HurtSound: {fileID: 8300000, guid: a3ae0abfce7647747800d9ab610d7a38, type: 3}
+  maxHealth: 1000
   currentHealth: 0
   deathEffect: {fileID: 0}
 --- !u!61 &1205538466157314860
@@ -186,7 +189,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1205538467284704058}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 201.3, y: 5.5, z: 2.6928177}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

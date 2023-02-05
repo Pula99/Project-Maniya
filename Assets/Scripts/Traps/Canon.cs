@@ -12,7 +12,7 @@ public class Canon : MonoBehaviour
     [Header("Canon life")]
     [SerializeField] private int maxHealth = 100;
     public int currentHealth;
-    [SerializeField] public GameObject deathEffect;
+   // [SerializeField] public GameObject deathEffect;
 
     private GameObject player;
     private float timer;
@@ -64,11 +64,11 @@ public class Canon : MonoBehaviour
 
     void Die()
     {
-        if (deathEffect)
+       /* if (deathEffect)
         {
             Instantiate(deathEffect, transform.position, Quaternion.identity);
 
-        }
+        }*/
         Destroy(gameObject);
     }
 

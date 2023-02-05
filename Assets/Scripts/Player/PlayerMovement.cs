@@ -8,6 +8,9 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController2D controller;
     public Animator animator;
 
+   /* [Header("SFX")]
+    [SerializeField] private AudioClip JumpSound;*/
+
     float runSpeed = 35f;
 
     float horizontalMove = 0f;
@@ -24,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
         {
             jump = true;
             animator.SetBool("isJumping", true);
+          //  SoundManager.instance.PlaySound(JumpSound);
         }
 
         if (Input.GetButtonDown("Crouch"))

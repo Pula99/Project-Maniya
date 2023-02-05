@@ -23,6 +23,13 @@ public class ShortRangeSoldier : MonoBehaviour
     public int currentHealth;
     [SerializeField] public GameObject deathEffect;
 
+    [Header("Enemy Attack Sound")]
+    [SerializeField] private AudioClip AttackSound;
+
+    [Header("Enemy Death Sound")]
+    [SerializeField] private AudioClip DeathSound;
+    [SerializeField] private AudioClip HurtSound;
+
     //references
     private Animator anim;
     private PlayerHealth playerHealth;
@@ -45,8 +52,10 @@ public class ShortRangeSoldier : MonoBehaviour
         {
             if(cooldownTimer >= attackCooldown)
             {
+                
                 cooldownTimer = 0;
                 anim.SetTrigger("meleeAttack");
+                SoundManager.instance.PlaySound(AttackSound);
             }
         }
 
@@ -85,6 +94,7 @@ public class ShortRangeSoldier : MonoBehaviour
         // if player still in the range damage
         if (PlayerInSight())
         {
+           
             playerHealth.TakeDamage(damage);
         }
     }
@@ -106,11 +116,13 @@ public class ShortRangeSoldier : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        SoundManager.instance.PlaySound(HurtSound);
         anim.SetTrigger("hurt");
 
         if (currentHealth <= 0)
         {
             anim.SetTrigger("die");
+            SoundManager.instance.PlaySound(DeathSound);
             Die();
 
         }

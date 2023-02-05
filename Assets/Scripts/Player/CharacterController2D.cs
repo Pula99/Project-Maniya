@@ -24,6 +24,8 @@ public class CharacterController2D : MonoBehaviour
 
     public UnityEvent OnLandEvent;
 
+    [Header("SFX")]
+    [SerializeField] private AudioClip JumpSound;
 
     [System.Serializable]
     public class BoolEvent : UnityEvent<bool> { }
@@ -133,6 +135,7 @@ public class CharacterController2D : MonoBehaviour
         if (m_Grounded && jump)
         {
             // Add a vertical force to the player.
+            SoundManager.instance.PlaySound(JumpSound);
             m_Grounded = true;
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
         }

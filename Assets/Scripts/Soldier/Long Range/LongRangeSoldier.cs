@@ -26,6 +26,13 @@ public class LongRangeSoldier : MonoBehaviour
     public int currentHealth;
     [SerializeField] public GameObject deathEffect;
 
+    [Header("Enemy Attack Sound")]
+    [SerializeField] private AudioClip AttackSound;
+
+    [Header("Enemy Death Sound")]
+    [SerializeField] private AudioClip DeathSound;
+    [SerializeField] private AudioClip HurtSound;
+
     //references
     private Animator anim;
     private LongEnemyPatrol longEnemyPatrol;
@@ -62,6 +69,7 @@ public class LongRangeSoldier : MonoBehaviour
     {
         if (PlayerInSight())
         {
+            SoundManager.instance.PlaySound(AttackSound);
             cooldownTimer = 0;
             RangeBullet[FindFireball()].transform.position = firepoint.position;
             RangeBullet[FindFireball()].GetComponent<EnemyProjectile>().ActivateProjectile();
@@ -117,11 +125,13 @@ public class LongRangeSoldier : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        SoundManager.instance.PlaySound(HurtSound);
         anim.SetTrigger("Hurt");
 
         if (currentHealth <= 0)
         {
             anim.SetTrigger("Die");
+            SoundManager.instance.PlaySound(DeathSound);
             Die();
         }
 
