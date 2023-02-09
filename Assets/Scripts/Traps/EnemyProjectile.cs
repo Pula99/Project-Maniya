@@ -83,6 +83,7 @@ public class EnemyProjectile : MonoBehaviour
         if (collision.tag == "Player")
           
             Manager.instance.PlayerHealth.TakeDamage(damage);
+     
          
 
         coll.enabled = false;

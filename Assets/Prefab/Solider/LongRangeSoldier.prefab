@@ -397,7 +397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackCooldown: 0.5
-  damage: 0
+  damage: 5
   range: 13
   firepoint: {fileID: 5895201694651023494}
   RangeBullet:
@@ -461,8 +461,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.016964912, y: -0.19949007}
-  m_Size: {x: 1.2951984, y: 1.5956507}
+  m_Offset: {x: 0.026464224, y: 0.037995815}
+  m_Size: {x: 1.5421834, y: 1.9566288}
   m_Direction: 0
 --- !u!1 &5895201696170618590
 GameObject:

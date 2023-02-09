@@ -24,7 +24,7 @@ public class LongRangeSoldier : MonoBehaviour
     [Header("Enemy life")]
     [SerializeField] private int maxHealth = 100;
     public int currentHealth;
-    [SerializeField] public GameObject deathEffect;
+    //[SerializeField] public GameObject deathEffect;
 
     [Header("Enemy Attack Sound")]
     [SerializeField] private AudioClip AttackSound;
@@ -139,10 +139,11 @@ public class LongRangeSoldier : MonoBehaviour
 
     void Die()
     {
-        if (deathEffect)
+       /* if (deathEffect)
         {
             Instantiate(deathEffect, transform.position, Quaternion.identity);
-        }
+        }*/
+
         Destroy(longEnemyPatrol.gameObject,1f);
     }
 

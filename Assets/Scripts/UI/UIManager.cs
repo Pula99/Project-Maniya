@@ -30,7 +30,7 @@ public class UIManager : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene("game");
+        SceneManager.LoadScene(1);
 
     }
 

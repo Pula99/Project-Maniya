@@ -29,7 +29,8 @@ public class FollowingEliteEnemyBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        anim.SetTrigger("moving");
+        //anim.SetTrigger("moving");
+
         // transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
 
         if(GetRelativePos())
@@ -68,7 +69,7 @@ public class FollowingEliteEnemyBullet : MonoBehaviour
 
 
 
-        // Destroy(gameObject);
+        Destroy(gameObject);
     }
 
 

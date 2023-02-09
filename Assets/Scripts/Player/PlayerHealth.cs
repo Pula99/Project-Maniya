@@ -82,7 +82,7 @@ public class PlayerHealth : MonoBehaviour
             SoundManager.instance.BgSound.enabled = false;
             uiManager.GameOver();
 
-            Time.timeScale = 0;
+           Time.timeScale = 0;
 
         }
 
